@@ -50,7 +50,7 @@ public class GameController : MonoBehaviour
     {
         if (restart)
         {
-            if (Input.GetKeyDown (KeyCode.R))
+            if (Input.GetKeyDown (KeyCode.T))
             {
                 Application.LoadLevel (Application.loadedLevel);
             }
@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds (waveWait);
             if (gameOver)
             {
-                restartText.text = "Press 'R' for Restart";
+                restartText.text = "Press 'T' to Try Again";
                 restart = true;
                 break;
             }
@@ -87,7 +87,7 @@ public class GameController : MonoBehaviour
 
     void UpdateScore ()
     {
-        ScoreText.text = "Score: " + score;
+        ScoreText.text = "Points: " + score;
         if (score >= 100)
         {
             winText.text = "You Win!";

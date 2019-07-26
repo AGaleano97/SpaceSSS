@@ -36,7 +36,7 @@ public class DestroyByContact : MonoBehaviour
            Instantiate(playerExplosion, other.transform.position, other.transform.rotation); 
            gameController.GameOver ();
         }
-        gameController.Addscore (scoreValue);
+//        gameController.Addscore (scoreValue);
         Destroy(other.gameObject);
         Destroy(gameObject);
     }
