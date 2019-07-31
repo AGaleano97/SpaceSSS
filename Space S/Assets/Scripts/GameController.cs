@@ -27,6 +27,12 @@ public class GameController : MonoBehaviour
 
     public Text creditText;
 
+    public AudioClip musicClipOne;
+
+    public AudioClip musicClipTwo;
+
+    public AudioSource musicSource;
+
     private bool gameOver;
 
     private bool restart;
@@ -92,6 +98,8 @@ public class GameController : MonoBehaviour
         {
             winText.text = "You Win!";
             creditText.text = "Game created by: Alejandro Galeano";
+            musicSource.clip = musicClipOne;
+            musicSource.Play();
             gameOver = true;
             restart = true;
         }
@@ -101,6 +109,8 @@ public class GameController : MonoBehaviour
     {
         gameOverText.text = "Game Over!";
         creditText.text = "Game created by: Alejandro Galeano";
+        musicSource.clip = musicClipTwo;
+        musicSource.Play();
         gameOver = true;
     }
 }
