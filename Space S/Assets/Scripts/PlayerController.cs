@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 {
      private Rigidbody rb;
 
-     public float speed;
+     
 
      public Boundary boundary;
 
@@ -21,6 +21,12 @@ public class PlayerController : MonoBehaviour
      public Transform shotSpawn;
      public float fireRate;
 
+     private GameController gameController;
+
+     public int scoreValue;
+     
+     private float speed;
+
      private float nextFire;
 
      private AudioSource audioSource;
@@ -29,6 +35,16 @@ public class PlayerController : MonoBehaviour
      {
           rb = GetComponent<Rigidbody>();
           audioSource = GetComponent<AudioSource>();
+          GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
+          if (gameControllerObject != null)
+          {
+            gameController = gameControllerObject.GetComponent <GameController>();
+          }
+          if (gameController == null)
+          {
+            Debug.Log ("Cannot find 'GameController' script");
+          }
+          speed = 10;
      }
 
      void Update ()
@@ -62,5 +78,19 @@ public class PlayerController : MonoBehaviour
           {
               Application.Quit();
           }
+     }
+
+     void OnTriggerEnter (Collider other)
+     {
+         if (other.gameObject.CompareTag("Pick Up"))
+         {
+             other.gameObject.SetActive (false);
+             gameController.Addscore (scoreValue + 10);
+         }
+         if (other.gameObject.CompareTag("Boost"))
+         {
+             other.gameObject.SetActive (false);
+             speed = 18;
+         }
      }
 }

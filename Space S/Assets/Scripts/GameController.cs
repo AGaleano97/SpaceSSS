@@ -27,6 +27,8 @@ public class GameController : MonoBehaviour
 
     public Text creditText;
 
+    public Text hardText;
+
     public AudioClip musicClipOne;
 
     public AudioClip musicClipTwo;
@@ -47,6 +49,7 @@ public class GameController : MonoBehaviour
         gameOverText.text = "";
         winText.text = "";
         creditText.text = "";
+        hardText.text = "Press 'H' for hard mode!";
         score = 0;
         UpdateScore ();
         StartCoroutine (SpawnWaves ());
@@ -94,7 +97,7 @@ public class GameController : MonoBehaviour
     void UpdateScore ()
     {
         ScoreText.text = "Points: " + score;
-        if (score >= 100)
+        if (score >= 150)
         {
             winText.text = "You Win!";
             creditText.text = "Game created by: Alejandro Galeano";
