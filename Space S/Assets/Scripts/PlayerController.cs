@@ -55,6 +55,10 @@ public class PlayerController : MonoBehaviour
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             audioSource.Play ();
          }
+         if (Input.GetKeyDown(KeyCode.Escape))
+          {
+              Application.Quit();
+          }
      }
 
      void FixedUpdate()
@@ -73,11 +77,6 @@ public class PlayerController : MonoBehaviour
           );
 
           rb.rotation = Quaternion.Euler (0.0f, 0.0f, rb.velocity.x * -tilt);
-
-          if (Input.GetKeyDown(KeyCode.Escape))
-          {
-              Application.Quit();
-          }
      }
 
      void OnTriggerEnter (Collider other)

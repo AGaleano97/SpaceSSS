@@ -97,7 +97,7 @@ public class GameController : MonoBehaviour
     void UpdateScore ()
     {
         ScoreText.text = "Points: " + score;
-        if (score >= 150)
+        if (score >= 100)
         {
             winText.text = "You Win!";
             creditText.text = "Game created by: Alejandro Galeano";
